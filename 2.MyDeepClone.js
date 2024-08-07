@@ -1,14 +1,14 @@
 // 手写深拷贝
 console.log('deepClone')
 
-const MyDeepClone = (newObject,oldObject) =>{
+const myDeepClone = (newObject,oldObject) =>{
     for (let k in oldObject) {
         if (oldObject[k] instanceof Array){
             newObject[k] = []
-            MyDeepClone(newObject[k], oldObject[k])
+            myDeepClone(newObject[k], oldObject[k])
         } else if (oldObject[k] instanceof Object) {
             newObject[k] = {}
-            MyDeepClone(newObject[k], oldObject[k])
+            myDeepClone(newObject[k], oldObject[k])
         } else {
             newObject[k] = oldObject[k]
         }
@@ -34,7 +34,7 @@ const obj1 = {
     arr: [1,2,a]
 }
 
-const obj2 = MyDeepClone({}, obj1)
+const obj2 = myDeepClone({}, obj1)
 obj2.age = 25
 
 console.log("old",obj1)

@@ -1,6 +1,6 @@
-// MyPromise
+// myPromise
 
-class MyPromise {
+class myPromise {
     constructor(fn) {
         state = 'pending' //状态
         value = undefined
@@ -93,15 +93,15 @@ class MyPromise {
     }
 }
 // 全局静态api
-MyPromise.resolve = function (value) {
+myPromise.resolve = function (value) {
     return new MyPromise((resolve, reject) => resolve(value))
 }
 
-MyPromise.reject = function (reason) {
+myPromise.reject = function (reason) {
     return new MyPromise((resolve, reject) => reject(reason))
 }
 
-MyPromise.All = function (promiseList = []) {
+myPromise.All = function (promiseList = []) {
     const p1 = new MyPromise ((resolve, reject) => {
         const res = []
         const len = promiseList.length
