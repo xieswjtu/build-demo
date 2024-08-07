@@ -19,3 +19,6 @@ function myNew(constructor, ...args) {
     }
     return obj
 }
+
+//使用
+// myNew(构造函数，参数)
