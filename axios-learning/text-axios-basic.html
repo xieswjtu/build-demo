@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios basic</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></scriptsrc></script>
+</head>
+<body>
+    <div class="container">
+        <h2 class="page-header" >基本使用</h2>
+        <button class="btn btn-primary">发送get请求</button>
+        <button class="btn btn-warning">发送post请求</button>
+        <button class="btn btn-success">发送put请求</button>
+        <button class="btn btn-danger">发送delete请求</button>
+    </div>
+    <script>
+        const btns = document.querySelectorAll("button")
+        btns[0].onclick = function() {
+            axios({
+                method:"GET",
+                url:"http://localhost:3000/posts/2"
+            }).then(res =>{
+                console.log(res)
+            })
+        }
+        btns[1].onclick = function() {
+            axios({
+                method:"POST",
+                url:"http://localhost:3000/posts",
+                //设置请求体
+                data: {
+                    text: "comment new",
+                    postId: "0",
+                }
+            }).then(res =>{
+                console.log(res)
+            })
+        }
+        btns[2].onclick = function() {
+            axios({
+                method:"PUT",
+                url:"http://localhost:3000/posts/4674",
+                //设置请求体
+                data: {
+                    text: "comment new",
+                    postId: "333",
+                }
+            }).then(res =>{
+                console.log(res)
+            })
+        }
+        btns[3].onclick = function() {
+            axios({
+                method:"DELETE",
+                url:"http://localhost:3000/posts/4674",
+            }).then(res =>{
+                console.log(res)
+            })
+        }
+
+    </script>
+    
+</body>
+</html>
