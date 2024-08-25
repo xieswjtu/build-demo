@@ -15,6 +15,8 @@ const myEvent = function(el, type, selctor, fn) {
         }
     })
 }
+
+//示例
 //普通绑定
 const btn1 = document.getElementById("btn1")
 myEvent(btn1, "click", function(e){
@@ -28,7 +30,7 @@ myEvent(div3, "click", "a", function(e){
     e.preventDefault()
     alert(this.innerHTML)
 })
-//HTML的结构如下所示
+//例子中的HTML的结构如下所示
 {/* <div id="div3">
     <a href="#">a1</a><br>
     <a href="#">a2</a><br>
