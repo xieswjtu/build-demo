@@ -48,7 +48,6 @@ class myPromise {
                             reject(err)
                         }
                     })
-
                     this.rejectCallbacks.push(() => {
                         try {
                             const newReason = fn2(this.reason)
@@ -102,13 +101,37 @@ myPromise.reject = function (reason) {
 }
 
 myPromise.All = function (promiseList = []) {
-    const p1 = new MyPromise ((resolve, reject) => {
+    const p1 = new myPromise ((resolve, reject) => {
         const res = []
         const len = promiseList.length
+        let resolvedCount = 0
         promiseList.forEach(p =>{
-            p.then()
+            p.then(data => {
+                res.push(data)
+                resolvedCount++
+                if (resolvedCount === len) {
+                    resolve(res)
+                }
+            }).catch(err =>{
+                reject(err)
+            })
         })
     })
     return p1
+}
 
+myPromise.race = function (promiseList = []) {
+    let resloved = false
+    const p = new myPromise((reslove, reject) => {
+        promiseList.forEach(p => {
+            p.then(data => {
+                if (!resloved) {
+                    reslove(data)
+                    resloved = true
+                }
+            }).catch(err => {
+                reject(err)
+            })
+        })        
+    })
 }
