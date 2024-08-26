@@ -7,3 +7,13 @@ function myCreate(obj) {
     F.prototype = obj
     return new F()
 }
+
+obj1 = {
+    "a":1
+}
+obj2 = myCreate(obj1)
+obj2.b = 2
+console.log(obj2)
+console.log(obj2.a)
+console.log(obj2.b)
+console.log(Object.prototype.toString.call(obj2))

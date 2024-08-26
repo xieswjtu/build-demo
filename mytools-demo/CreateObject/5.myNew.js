@@ -1,8 +1,8 @@
-//手写new
+//手写new  ！！！new与object.create()相比，new是自动指定_proto_，而object.create()是手动指定！！！
 //调用new时，有以下四个步骤：
 // 1.创建一个新的空对象
 // 2.将新的空对象原型设置为构造函数原型
-// 3.让函数的this指向这个对象，并执行函数代码
+// 3.让构造函数的this指向这个对象，并执行函数代码
 // 4.返回这个对象(如果是值类型，返回创建的对象；如果是引用类型，返回这个引用类型的对象)
 function myNew(constructor, ...args) {
     if (typeof constructor !== "function") {
