@@ -1,0 +1,58 @@
+<!-- 两种方式 上中下 布局 上下100px 中间自适应 -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* 方法1 */
+    body, html {
+      margin: 0;
+      height: 100%;
+    }
+
+    .container {
+      height: 100vh; /* 整体高度设为视口高度 */
+    }
+
+    .header, .footer {
+      height: 100px;
+      background-color: lightblue;
+    }
+
+    .content {
+      height: calc(100vh - 200px); /* 计算中间部分高度，100vh 减去上下两个 100px */
+      background-color: lightgreen;
+    }
+    
+    /* 方法2 */
+    /* body, html {
+      margin: 0;
+      height: 100%;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .header, .footer {
+      height: 100px;
+      background-color: lightblue;
+    }
+
+    .content {
+      flex: 1;
+      background-color: lightgreen;
+    } */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">顶部区域</div>
+    <div class="content">中间自适应区域</div>
+    <div class="footer">底部区域</div>
+  </div>
+</body>
+</html>
