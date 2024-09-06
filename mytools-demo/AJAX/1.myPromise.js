@@ -1,15 +1,15 @@
 // myPromise
 
 class myPromise {
-    constructor(fn) {
-        state = 'pending' //状态
-        value = undefined
-        reason = undefined
+    state = 'pending' //状态
+    value = undefined
+    reason = undefined
 
-        //配合.then
-        resolveCallbacks = [] //pending状态下，储存成功后的回调
-        rejectCallbacks = [] //pengding状态下，储存失败后的回调
-        
+    //配合.then
+    resolveCallbacks = [] //pending状态下，储存成功后的回调
+    rejectCallbacks = [] //pengding状态下，储存失败后的回调
+
+    constructor(fn) {      
         const resolveHandle = (value) => {
             if (this.state === 'pending') {
                 this.state = 'fulfilled'
@@ -51,7 +51,7 @@ class myPromise {
                     this.rejectCallbacks.push(() => {
                         try {
                             const newReason = fn2(this.reason)
-                            resolve(newReason)
+                            reject(newReason)
                         } catch(err) {
                             reject(err)
                         }
@@ -122,7 +122,7 @@ myPromise.All = function (promiseList = []) {
 
 myPromise.race = function (promiseList = []) {
     let resloved = false
-    const p = new myPromise((reslove, reject) => {
+    const p1 = new myPromise((reslove, reject) => {
         promiseList.forEach(p => {
             p.then(data => {
                 if (!resloved) {
@@ -134,4 +134,5 @@ myPromise.race = function (promiseList = []) {
             })
         })        
     })
+    return p1
 }
