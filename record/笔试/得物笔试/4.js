@@ -1,0 +1,1 @@
+console.log("\\\\\\".replace(new RegExp("\\\\\\\\","gi"),"/"))

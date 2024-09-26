@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- order属性的用法 -->
+<style>
+    .container{
+        display:flex;
+        flex-direction: row-reverse
+    }
+    .item1{
+        order:1
+    }
+    .item3{
+        order:2
+    }
+
+</style>
+<body>
+    <h1>TEST</h1>
+    <div class="container">
+        <div class="item1">item1</div>
+        <div class="item2">item2</div>
+        <div class="item3">item3</div>
+        <!-- 结果为312 -->
+    </div>
+    <script src="4.js"></script>
+    
+</body>
+</html>
+<!-- 排序过程
+order 值比较：
+item1 的 order 为 1。
+item2 的 order 默认为 0。
+item3 的 order 为 2。
+按照 order 的值，排序结果为：
+item2（order: 0）
+item1（order: 1）
+item3（order: 2）
+反向排列：
+由于设置了 flex-direction: row-reverse，排列顺序将被反转。
+最终排列顺序
+经过排序和反转，最终的视觉顺序将是：
+右侧：item3（最后显示，因为 order 最大）
+中间：item1
+左侧：item2（最先显示，因为 order 最小） -->
