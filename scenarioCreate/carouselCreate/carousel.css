@@ -1,0 +1,24 @@
+.container {
+    margin: 100px auto 0;
+    height: 300px;
+    width: 500px;
+    border: 1px solid;
+    overflow: hidden;
+}
+
+.carousel {
+    height: 300px;
+    width: 3000px;
+    display: flex;
+}
+
+.carousel div {
+    height: 300px;
+    width: 500px;
+    float:left
+}
+
+.carousel div img {
+    height: 100%;
+    width: 100%;
+}

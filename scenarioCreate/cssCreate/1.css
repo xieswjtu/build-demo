@@ -1,0 +1,46 @@
+/* 三角形 */
+/* 底边在下 */
+.trangle:nth-child(1) {
+    height: 0;
+    width: 0;
+    border-bottom: 60px solid red;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+}
+/* 底边在上 */
+.trangle:nth-child(2) {
+    height: 0;
+    width: 0;
+    border-top: 60px solid red;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+}
+/* 底边在右 */
+.trangle:nth-child(3) {
+    height: 0;
+    width: 0;
+    border-right: 60px solid red;
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+}
+
+/* 扇形 */
+/* 方法一（类似上面） */
+/* .cut {
+    height: 0;
+    width: 0;
+    border-bottom: 60px solid red;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-radius: 50% ;
+} */
+ /* 方法二 */
+.cut {
+    border: 100px solid transparent;
+    width: 0;
+    height: 0;
+    border-radius: 100px;
+    border-bottom-color: red; 
+}
+
+
