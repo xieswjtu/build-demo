@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+
+<body>
+  <ul id="myList">
+    <li id="item1">项目 1</li>
+    <li id="item3">项目 3</li>
+    <li id="item2">项目 2</li>
+    <li id="item4">项目 4</li>
+  </ul>
+
+  <script>
+    function sortAndReturnTextContent() {
+      const items = document.getElementById('myList').children;
+      console.log(items)
+      if (items.length === 0 ) return
+      const myList = document.getElementById('myList')
+      let res = Array(items.length-1).fill(0)
+      for (let i=0; i<items.length; i++){
+        res[Number(items[i].id[4])-1] = items[i]
+      }
+      console.log(res)
+      for (let i=0; i<items.length; i++){
+        myList.remove(items[i])
+      }
+      res.forEach((item) =>{
+        myList.appendChild(item)
+        console.log(myList.children)
+      })
+      // 在此补全代码
+    }
+    sortAndReturnTextContent()
+  </script>
