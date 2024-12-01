@@ -3,10 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS绘图</title>
+    <title>CSS绘图动画</title>
     <link rel="stylesheet"  href="1.css"/>
 </head>
+<style>
+    .box{
+        width: 0;
+        height: 0;
+        border: 100px solid;
+        border-color: transparent transparent blue transparent;
+        transition: 3s
+    }
+
+    .box:hover {
+        transform: rotate(180deg);
+        transform-origin: 100px 150px
+    }
+
+</style>
 <body>
+    <!-- 三角形 鼠标悬停旋转-->
+    <div style="display: flex; margin-bottom: 100px">
+        <div class="box"></div>
+    </div>
     <!-- 三角形 -->
     <div style="display: flex;">
         <div class="trangle"></div>

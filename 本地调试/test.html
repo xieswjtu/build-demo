@@ -5,8 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .container {
+        display: flex;
+        height: 600px;
+        width:600px
+    }
+    .left {
+        width: 100px;
+        background-color: antiquewhite;
+    }
+    .right {
+        flex: auto;
+        background-color: aqua;
+    }
+</style>
 <body>
     <h1>TEST</h1>
+    <div class="container">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
     <script src="1.js"></script>
     
 </body>
