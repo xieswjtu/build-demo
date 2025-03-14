@@ -14,6 +14,6 @@ const stuServ = require("./services/studentService")
 // })
 
 //分页查询
-stuServ.getStundent(1,10).then(rep=>{
+stuServ.getStudent(1,10,1,"平").then(rep=>{
     console.log(rep)
 })
