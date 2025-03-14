@@ -14,7 +14,7 @@ const Student = sequelize.define("Stundent",{
         type: DataTypes.BOOLEAN,
         allowNull: false
     },
-    moblie: {
+    mobile: {
         type: DataTypes.STRING(11),
         allowNull: false,
     },

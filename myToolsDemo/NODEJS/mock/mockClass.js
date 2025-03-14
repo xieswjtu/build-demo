@@ -1,3 +1,4 @@
+//自动生成班级数据
 const Mock = require("mockjs")
 
 const res = Mock.mock({
@@ -10,5 +11,6 @@ const res = Mock.mock({
     ],
 }).datas;
 
+// console.log(res)
 const Class = require("../models/Class")
 Class.bulkCreate(res)

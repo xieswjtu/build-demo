@@ -7,11 +7,7 @@ const Admin = sequelize.define('Admin', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  loginPassword: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  name: {
+  loginPwd: {
     type: DataTypes.STRING,
     allowNull: false
   },
