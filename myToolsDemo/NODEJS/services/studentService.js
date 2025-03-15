@@ -52,7 +52,10 @@ exports.getStudent = async function (page = 1, limit = 10, sex = -1, name = "") 
     //结合findAll和count，该方法返回count（一个整数，符合查询条件的记录整数）和rows（一个数组，获得的记录）
     const res = await Student.findAndCountAll({
         where: condition,
-        include: [Class], //获取包含元素
+        include: {    
+            model: Class,
+            attributes: ["id","name"]
+        }, //获取包含元素
         offset: (page-1)*limit,
         limit: limit
     })
