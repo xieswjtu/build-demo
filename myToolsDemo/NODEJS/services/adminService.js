@@ -48,7 +48,7 @@ exports.login = async function(loginId, loginPwd){
     })
     //因为mysql中不区分大小写，所以手动编写区分大小写逻辑
     if (res && res.loginId === loginId && res.loginPwd === loginPwd){
-        return res.toJSON()
+        return res
     }
     return null
 }

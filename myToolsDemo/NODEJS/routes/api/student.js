@@ -1,15 +1,17 @@
 //针对学生的路由处理
 const express = require("express")
 const stuServ = require("../../services/studentService")
-const {getResult} = require("../getSendResult")//引入统一响应格式函数
+const {getResult, asyncHandler} = require("../getSendResult")//引入统一响应格式函数
 
 const router = express.Router()
 
-router.get("/", async (req, res) => {
-    const {page=1, limit=10, sex=-1, name=""} = req.query
-    const stu = await stuServ.getStudent(page, limit, sex, name)
-    res.send(getResult(stu))
-})
+router.get("/", 
+    asyncHandler(async (req, res) => {
+        const {page=1, limit=10, sex=-1, name=""} = req.query
+        const stu = await stuServ.getStudent(page, limit, sex, name)
+        res.send(getResult(stu))
+    })
+)
 
 router.get("/:id", (req, res) => {
     res.send("获取单个学生")

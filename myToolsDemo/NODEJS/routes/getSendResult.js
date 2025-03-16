@@ -16,3 +16,17 @@ exports.getResult = function(res){
         data: res
     }
 }
+
+
+//统一异步错误捕获问题
+exports.asyncHandler = function (fn){
+    return async (req, res, next) => {
+        try {
+            const result = await fn(req, res, next)
+            res.send(exports.getResult(result))
+        } catch(err) {
+            next(err)
+        }
+    }
+
+}

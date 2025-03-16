@@ -13,6 +13,7 @@ app.listen(port, () =>{
 
 //统一处理api 有关student的请求
 app.use("/api/student", require("./api/student"))
+app.use("/api/admin", require("./api/admin"))
 
 //解析 格式的请求体
 
