@@ -16,9 +16,9 @@
 
 
 <script>
-import Avatar from './component/Avatar.vue';
-import Icon from './component/Icon.vue';
-import Pager from './component/Pager.vue'
+import Avatar from './component/Avatar/index.vue';
+import Icon from './component/Icon/index.vue';
+import Pager from './component/Pager/index.vue'
 export default {
   data() {
     return{
