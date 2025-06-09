@@ -1,24 +1,26 @@
 <template>
-  <div id="app">
-     <Avatar 
-         url="https://img2.baidu.com/it/u=2798934738,3124074903&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=800"
-         :size = 100
-     />
-     <Icon type="info" />
-     <Pager 
+  <div class="app-container">
+    <Layout>
+      <template #left>
+        <div class="aside">
+          <SiteAside/>
+        </div>
+      </template>
+    </Layout>
+     <!-- <Pager 
        :current="current"
-       :total=600
+       :total=500
        @pageChange="handlePageChange($event)"
-     />
+     /> -->
   </div>
 </template>
 
 
 
 <script>
-import Avatar from './component/Avatar/index.vue';
-import Icon from './component/Icon/index.vue';
-import Pager from './component/Pager/index.vue'
+// import Pager from '@/component/Pager'
+import SiteAside from '@/component/SiteAside'
+import Layout from '@/component/Layout'
 export default {
   data() {
     return{
@@ -26,9 +28,9 @@ export default {
     }
   },
   components: {
-    Avatar,
-    Icon,
-    Pager,
+    // Pager,
+    SiteAside,
+    Layout,
   },
   methods: {
     handlePageChange(newPage){
@@ -38,3 +40,16 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+@import "~@/styles/mixin.less";
+.app-container{
+  .self-fill();
+  background: red
+}
+.aside{
+  width: 250px;
+  height: 100%;
+  background: black;
+}
+</style>

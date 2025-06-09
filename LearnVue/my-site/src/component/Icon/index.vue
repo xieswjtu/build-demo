@@ -5,14 +5,17 @@
 <script>
 const classMap = {
     home: "icon-aichegujiabeifen5",
-    info: "icon-user-fill",
+    user: "icon-user-fill",
     code: "icon-resource",
     blog: "icon-chuangzuo",
     chat: "icon-huati",
     success: "icon-success-filling",
     error: "icon-prompt-filling",
     warn: "icon-warning-filling",
-    close: "icon-delete-filling"
+    close: "icon-delete-filling",
+    empty: "icon-empty",
+    weixin:"icon-icon-test7",
+    github: "icon-icon-test6"
 }
 export default {
     props: {
@@ -31,6 +34,6 @@ export default {
 </script>
 
 <style>
-@import "//at.alicdn.com/t/c/font_4939226_xpz15q0i6k8.css";
+@import "//at.alicdn.com/t/c/font_4939226_obrthhsqcqp.css";
 
 </style>
