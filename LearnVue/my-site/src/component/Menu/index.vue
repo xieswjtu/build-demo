@@ -2,9 +2,9 @@
     <div class="menu-container">
         <RouterLink
         v-for="(item, index) in  items"
+        :exact = "item.exact"
         :key="index"
         :to="item.link"
-        :class="{selected:isSelected(item)}"
         >
           <Icon :type="item.icon" />
           <div>{{ item.title }}</div>
@@ -25,44 +25,48 @@ export default {
                 {
                     link:"/",
                     title:"首页",
-                    icon:"home"
+                    icon:"home",
+                    exact: true,
                 },
                 {
                     link:"/blog",
                     title:"文章",
                     icon:"blog",
-                    startWith:true
+                    exact: false, //是否激活精确匹配
                 },
                 {
                     link:"/about",
                     title:"关于我",
-                    icon:"user"
+                    icon:"user",
+                    exact: true,
                 },
                 {
                     link:"/project",
                     title:"项目",
-                    icon:"code"
+                    icon:"code",
+                    exact: true,
                 },
                 {
                     link:"/message",
                     title:"留言板",
-                    icon:"chat"
+                    icon:"chat",
+                    exact: true,
                 },
             ]
         }
     },
-    methods: {
-        isSelected(item){
-            const path = item.link.toLowerCase() //菜单地址
-            const curPath = location.pathname.toLowerCase() //当前浏览器路径
-            if (item.startWith){
-                return curPath.startsWith(path)
-            } else {
-                return curPath === path
+    // methods: {
+    //     isSelected(item){
+    //         const path = item.link.toLowerCase() //菜单地址
+    //         const curPath = location.pathname.toLowerCase() //当前浏览器路径
+    //         if (item.startWith){
+    //             return curPath.startsWith(path)
+    //         } else {
+    //             return curPath === path
 
-            }
-        },
-    },
+    //         }
+    //     },
+    // },
 }
 </script>
 
@@ -85,7 +89,10 @@ export default {
             color: #fff ;
         }
     }
-    .selected {
+    // .selected {
+    //     background: #2d2d2d;
+    // }
+    a.router-link-active {
         background: #2d2d2d;
     }
 }

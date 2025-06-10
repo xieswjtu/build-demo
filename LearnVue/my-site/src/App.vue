@@ -6,6 +6,9 @@
           <SiteAside/>
         </div>
       </template>
+      <template>
+        <RouterView />
+      </template>
     </Layout>
      <!-- <Pager 
        :current="current"
