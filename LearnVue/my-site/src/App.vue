@@ -48,11 +48,9 @@ export default {
 @import "~@/styles/mixin.less";
 .app-container{
   .self-fill();
-  background: red
 }
 .aside{
   width: 250px;
   height: 100%;
-  background: black;
 }
 </style>

@@ -15,7 +15,8 @@ const classMap = {
     close: "icon-delete-filling",
     empty: "icon-empty",
     weixin:"icon-icon-test7",
-    github: "icon-icon-test6"
+    github: "icon-icon-test6",
+    info: "icon-prompt-filling"
 }
 export default {
     props: {

@@ -61,7 +61,7 @@ export default {
             font-size: 16px;
             align-items: center;
             .icon {
-            margin-right: 8px;
+              margin-right: 8px;
             }
         }
         .pop {
