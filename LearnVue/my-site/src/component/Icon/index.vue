@@ -1,5 +1,5 @@
 <template>
-    <i class="iconfont icon-container" :class = fontClass></i>
+    <i class="iconfont icon-container" :class = fontClass :style="{ fontSize: size + 'px' }"></i>
 </template>
 
 <script>
@@ -16,7 +16,9 @@ const classMap = {
     empty: "icon-empty",
     weixin:"icon-icon-test7",
     github: "icon-icon-test6",
-    info: "icon-prompt-filling"
+    info: "icon-prompt-filling",
+    arrowup: "icon-up",
+    arrowdown:"icon-down"
 }
 export default {
     props: {
@@ -24,6 +26,10 @@ export default {
             type: String,
             require: true,
         },
+        size: {
+            type:Number,
+            default:16
+        }
     },
     computed:{
         fontClass(){
@@ -35,6 +41,6 @@ export default {
 </script>
 
 <style>
-@import "//at.alicdn.com/t/c/font_4939226_obrthhsqcqp.css";
+@import "//at.alicdn.com/t/c/font_4939226_gn7hq2ou4ic.css";
 
 </style>

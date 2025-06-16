@@ -36,10 +36,10 @@ export default {
     Layout,
   },
   methods: {
-    handlePageChange(newPage){
-      console.log(newPage)
-      this.current = newPage
-    }
+    // handlePageChange(newPage){
+    //   console.log(newPage)
+    //   this.current = newPage
+    // }
   }
 }
 </script>
