@@ -1,5 +1,5 @@
 <template>
-    <div class="home-container" ref="container">
+    <div v-loading="isLoading" class="home-container" ref="container">
         <div 
             class="carousel-container" 
             :style="{ marginTop,}" 
@@ -49,6 +49,7 @@ export default {
     },
     data() {
         return{
+            isLoading: true,
             banner: [],
             index:0, //当前显示的是第几张轮播图
             containerHeight:0, //整个容器的高度
@@ -62,6 +63,7 @@ export default {
     // },
     async created() {
         this.banner = await getBanners()
+        this.isLoading = false
     },
     mounted() {
         this.containerHeight = this.$refs.container.clientHeight
