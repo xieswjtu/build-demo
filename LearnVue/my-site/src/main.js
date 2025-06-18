@@ -6,6 +6,11 @@ import "@/mock"
 
 Vue.config.productionTip = false
 
+//全局引入自定义指令
+import vLoading from '@/directives/loading'
+Vue.directive("loading", vLoading)
+
+
 
 new Vue({
   router,
