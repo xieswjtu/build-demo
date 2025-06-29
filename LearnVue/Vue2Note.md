@@ -10,9 +10,11 @@
 
 ​​示例​​：
 
-    <p v-if="score >= 90">优秀</p>
-    <p v-else-if="score >= 60">及格</p>
-    <p v-else>不及格</p>
+```html
+<p v-if="score >= 90">优秀</p>
+<p v-else-if="score >= 60">及格</p>
+<p v-else>不及格</p>
+```
 
 ​​2. v-show​​
 
@@ -174,20 +176,38 @@ conputed{
 
 ### ​​3. 自定义指令​​
 
-    ​​全局注册​​:
-    Vue.directive('focus', {
-      inserted(el) {
-        el.focus();
-      }
-    });
-    局部注册​​：
-    directives: {
-      'highlight': {
-        bind(el, binding) {
-          el.style.backgroundColor = binding.value || 'yellow';
-        }
-      }
+```javascript
+​​//全局注册​​:
+Vue.directive('focus', {
+  inserted(el) {
+    el.focus();
+  }
+});
+//局部注册​​：
+directives: {
+  'highlight': {
+    bind(el, binding) {
+      el.style.backgroundColor = binding.value || 'yellow';
     }
+  }
+}
+//内部逻辑
+{
+    bind() {
+        //只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性初始化的设置
+    },
+    inserted() {
+        //被绑定元素插入父节点时调用
+    },
+    update() {
+        //所在组件的VNode更新时调用
+    }
+}
+
+
+
+
+```
 
 # 内置组件
 
@@ -218,8 +238,6 @@ conputed{
 ## 为什么要使用Scoped？
 
 在vue中，给组件加上scoped属性，可以让样式只作用于当前组件（局部样式）
-
-
 
 ## 在vue中父组件传值给子组件props 加不加 ：（冒号）有什么区别？
 
