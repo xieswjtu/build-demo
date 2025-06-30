@@ -1,12 +1,18 @@
 
 <template>
     <ul class="right-list-container">
-        <li v-for="(item, index) in list"  :key="index">
+        <li v-for="(item, index) in list"  :key="index" :class="{active: item.isSelect}">
             <span 
-            :class="{active: item.isSelect}"
-            @click="handleClick(item)"
+                @click="handleClick(item)"
+                :class="{active: item.isSelect}"
             >
                 {{ item.name }}
+            </span>
+            <span 
+                v-if="item.articleCount" 
+                class="articleCount"  
+                :class="{active: item.isSelect}">
+                {{item.articleCount}}篇
             </span>
         <!-- 显示当前组件 -->
          <RightList :list="item.children" @select="handleClick(item)"/>
@@ -47,10 +53,15 @@ export default {
         span {
             cursor: pointer;
         }
-        & .active {
+        .active {
             color: @warn;
             font-weight: bold;
         }
+    }
+    .articleCount {
+        font-size: 12px;
+        margin-left: 1em;
+        color: @gray;
     }
 }
 

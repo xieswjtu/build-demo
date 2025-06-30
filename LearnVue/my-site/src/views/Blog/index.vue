@@ -8,22 +8,15 @@
                 <BlogCategory/>
             </template>
         </Layout>
-    <!-- <RightList :list="list" @select="handleSelect"/> -->
     </div>
 </template>
 
 <script >
-// import RightList from './components/RightList.vue';
-import Layout from "@/component/Layout"
-import BlogCategory from "./components/BolgCategory.vue"
-import BlogList from "./components/BolgList.vue"
-export default {
-    methods: {
-        handleSelect(item) {
-            console.log(item)
-        }
 
-    },
+import Layout from "@/component/Layout"
+import BlogCategory from "./components/BlogCategory.vue"
+import BlogList from "./components/BlogList.vue"
+export default {
     components : {
         // RightList,
         Layout,

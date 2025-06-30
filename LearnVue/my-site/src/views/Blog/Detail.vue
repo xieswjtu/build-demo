@@ -1,6 +1,6 @@
 <template>
-    <div class="">
-        BlogCategory
+    <div class="blog-detail-container">
+        <h2>博客文章</h2>
     </div>
 </template>
 
