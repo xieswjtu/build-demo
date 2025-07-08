@@ -71,5 +71,8 @@ export default {
 </script>
 
 <style >
+.blog-container{
+    position: relative;
+}
 
 </style>

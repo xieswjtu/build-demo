@@ -8,7 +8,9 @@ Vue.config.productionTip = false
 
 //全局引入自定义指令
 import vLoading from '@/directives/loading'
+import vLazy from '@/directives/lazy'
 Vue.directive("loading", vLoading)
+Vue.directive("lazy", vLazy)
 
 
 

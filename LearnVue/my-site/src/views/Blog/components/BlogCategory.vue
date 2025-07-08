@@ -1,10 +1,12 @@
 <template>
-    <div class="blog-category-container">
-        <h2>文章分类</h2>
-        <RightList 
-        :list="this.list" 
-        @select="handleSelect"
-        />
+    <div class="blog-category-container" v-loading="isLoading">
+        <div v-if="!isLoading">
+            <h2>文章分类</h2>
+            <RightList 
+            :list="this.list" 
+            @select="handleSelect"
+            />        
+        </div>
     </div>
 </template>
 
@@ -15,7 +17,8 @@ import {getBlogType} from "@/api/blog"
 export default {
     data() {
         return {
-            datas: []
+            datas: [],
+            isLoading: true
         }
     },
     components: {
@@ -42,10 +45,10 @@ export default {
                 },
                 ...this.datas
             ]
-             res.map(item=>{
-                item.isSelect = this.routeInfo.categoryId === item.id
-             })
-            return res
+            return   res.map(item=>({
+                ...item,
+                isSelect : this.routeInfo.categoryId === item.id
+            }))
         }
     },
     methods: {
@@ -75,14 +78,17 @@ export default {
     },
     async created() {
         this.datas = await getBlogType()
-        console.log(this.list)         
+        this.isLoading =false
+               
     }
 }
 </script>
 
 <style scoped lang="less">
 .blog-category-container{
+    position: relative;
     width: 300PX;
+    height: 100%;
     box-sizing: border-box;
     padding: 20PX;
     h2 {

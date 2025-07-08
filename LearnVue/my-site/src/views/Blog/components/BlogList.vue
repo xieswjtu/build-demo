@@ -9,7 +9,7 @@
                         params: { id: item.id } 
                     }"
                     >              
-                        <img :src="item.thumb" :alt="item.title">
+                        <img v-lazy="item.thumb" :src="item.thumb" :alt="item.title">
                     </router-link>
                 </div>
                 <div class="main">
@@ -54,6 +54,7 @@
 import Pager from '@/component/Pager'
 import {getBlogs} from "@/api/blog"
 import { formatDate } from '@/utils';
+import eventBus from "@/eventBus";
 
 export default {
     components: {
@@ -117,7 +118,18 @@ export default {
     async created() {
         this.blogs = await getBlogs()
         this.isLoading = false
-        console.log(this.blogs)
+    },
+    mounted() {
+        const container = this.$refs.container; // 获取滚动容器
+        // console.log(container)
+        container.addEventListener('scroll', () => {
+        eventBus.$emit('mainScroll'); // 派发滚动事件
+        });
+    },
+    beforeDestroy() {
+        // 移除事件监听避免内存泄漏
+        const container = this.$refs.container; // 获取滚动容器
+        container.removeEventListener('scroll', this.scrollHandler);
     }
 }
 </script>
