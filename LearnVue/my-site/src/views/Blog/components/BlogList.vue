@@ -54,7 +54,7 @@
 import Pager from '@/component/Pager'
 import {getBlogs} from "@/api/blog"
 import { formatDate } from '@/utils';
-import eventBus from "@/eventBus";
+import eventBus from "@/eventBus"; //事件总线，引入
 
 export default {
     components: {
@@ -123,7 +123,7 @@ export default {
         const container = this.$refs.container; // 获取滚动容器
         // console.log(container)
         container.addEventListener('scroll', () => {
-        eventBus.$emit('mainScroll'); // 派发滚动事件
+        eventBus.$emit('mainScroll'); // 事件总线，派发滚动事件
         });
     },
     beforeDestroy() {
